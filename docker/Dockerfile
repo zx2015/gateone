@@ -30,13 +30,14 @@
 #
 ############################################################
 
-FROM ubuntu
-MAINTAINER Dan McDougall <daniel.mcdougall@liftoffsoftware.com>
+FROM ubuntu:latest
+MAINTAINER Zhou Xin <zhouxin@day-one.cn>
 
 ENV GATEONE_REPO_URL https://github.com/liftoff/GateOne.git
 
 # Ensure everything is up-to-date
 ENV DEBIAN_FRONTEND noninteractive
+ADD sources.list.trusty /etc/apt/source.list
 RUN apt-get update --fix-missing && apt-get -y upgrade
 
 # Install dependencies
